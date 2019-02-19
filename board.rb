@@ -1,6 +1,9 @@
 require_relative "tile"
 
 class Board
+  attr_accessor :grid
+
+
   def self.empty_grid
     Array.new(9) do
       Array.new(9) { Tile.new(0) }
@@ -80,6 +83,4 @@ class Board
     (0..8).to_a.map { |i| square(i) }
   end
 
-  private
-  attr_reader :grid
 end

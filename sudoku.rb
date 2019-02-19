@@ -1,13 +1,16 @@
 require_relative "board"
+require "byebug"
 
 class SudokuGame
-  def self.from_file(filename)
-    board = Board.from_file(filename)
-    self.new(board)
-  end
+  attr_accessor :board
 
   def initialize(board)
     @board = board
+  end
+
+  def self.from_file(filename)
+    board = Board.from_file(filename)
+    self.new(board)
   end
 
   def get_pos
@@ -74,9 +77,8 @@ class SudokuGame
       val.between?(0, 9)
   end
 
-  private
-  attr_reader :board
 end
 
 
 game = SudokuGame.from_file("puzzles/sudoku1.txt")
+game.run
