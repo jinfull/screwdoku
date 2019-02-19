@@ -1,4 +1,4 @@
-require_relative "board"
+require "./lib/board"
 
 class SudokuGame
   def self.from_file(filename)
